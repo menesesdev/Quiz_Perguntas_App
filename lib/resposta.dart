@@ -1,18 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Resposta extends StatelessWidget {
-  //const Resposta({super.key});
   final String texto;
-  Resposta(this.texto);
+  final void Function() quandoSelecionado;
+
+  Resposta(this.texto, this.quandoSelecionado);
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      child: Text(texto),
-      onPressed: null,
+    return Container(
+      width: double.infinity,
+      child: TextButton(
+        child: Text(texto),
+        onPressed: quandoSelecionado,
+      ),
     );
   }
 }
